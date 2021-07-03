@@ -32,136 +32,141 @@ class _CalculatorNeuAppState extends State<CalculatorNeuApp> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(18),
-          child: Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Column(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            darkMode ? darkMode = false : darkMode = true;
+                          });
+                        },
+                        child: _switchMode()),
+                    SizedBox(height: 0),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        '6.010',
+                        style: TextStyle(
+                            fontSize: 55,
+                            fontWeight: FontWeight.bold,
+                            color: darkMode ? Colors.white : Colors.red),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '=',
+                          style: TextStyle(
+                              fontSize: 35,
+                              color: darkMode ? Colors.green : Colors.grey),
+                        ),
+                        Text(
+                          '10+500*12',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: darkMode ? Colors.green : Colors.grey),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 0,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(children: [
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              darkMode ? darkMode = false : darkMode = true;
-                            });
-                          },
-                          child: _switchMode()),
-                      SizedBox(height: 80),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          '6.010',
-                          style: TextStyle(
-                              fontSize: 55,
-                              fontWeight: FontWeight.bold,
-                              color: darkMode ? Colors.white : Colors.red),
-                        ),
+                      _buttonOval(
+                        title: 'sin',
+                        padding: 15,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '=',
-                            style: TextStyle(
-                                fontSize: 35,
-                                color: darkMode ? Colors.green : Colors.grey),
-                          ),
-                          Text(
-                            '10+500*12',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: darkMode ? Colors.green : Colors.grey),
-                          )
-                        ],
+                      _buttonOval(
+                        title: 'cos',
+                        padding: 15,
                       ),
-                      SizedBox(
-                        height: 10,
+                      _buttonOval(
+                        title: 'tan',
+                        padding: 15,
+                      ),
+                      _buttonOval(
+                        title: '%',
+                        padding: 15,
                       )
                     ],
                   ),
-                ),
-                Container(
-                  child: Column(children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonOval(title: 'sin'),
-                        _buttonOval(title: 'cos'),
-                        _buttonOval(title: 'tan'),
-                        _buttonOval(title: '%')
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonRounded(
-                            title: 'C',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent),
-                        _buttonRounded(title: '('),
-                        _buttonRounded(title: ')'),
-                        _buttonRounded(
-                            title: '/',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent)
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonRounded(title: '7'),
-                        _buttonRounded(title: '8'),
-                        _buttonRounded(title: '9'),
-                        _buttonRounded(
-                            title: 'x',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent)
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonRounded(title: '4'),
-                        _buttonRounded(title: '5'),
-                        _buttonRounded(title: '6'),
-                        _buttonRounded(
-                            title: '-',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent)
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonRounded(title: '1'),
-                        _buttonRounded(title: '2'),
-                        _buttonRounded(title: '3'),
-                        _buttonRounded(
-                            title: '+',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent)
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buttonRounded(title: '0'),
-                        _buttonRounded(title: ','),
-                        _buttonRounded(
-                            icon: Icons.backspace_outlined,
-                            iconColor:
-                                darkMode ? Colors.green : Colors.redAccent),
-                        _buttonRounded(
-                            title: '=',
-                            textColor:
-                                darkMode ? Colors.green : Colors.redAccent)
-                      ],
-                    )
-                  ]),
-                ),
-              ],
-            ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buttonRounded(
+                          title: 'C',
+                          textColor:
+                              darkMode ? Colors.green : Colors.redAccent),
+                      _buttonRounded(title: '('),
+                      _buttonRounded(title: ')'),
+                      _buttonRounded(
+                          title: '/',
+                          textColor: darkMode ? Colors.green : Colors.redAccent)
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buttonRounded(title: '7'),
+                      _buttonRounded(title: '8'),
+                      _buttonRounded(title: '9'),
+                      _buttonRounded(
+                          title: 'x',
+                          textColor: darkMode ? Colors.green : Colors.redAccent)
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buttonRounded(title: '4'),
+                      _buttonRounded(title: '5'),
+                      _buttonRounded(title: '6'),
+                      _buttonRounded(
+                          title: '-',
+                          textColor: darkMode ? Colors.green : Colors.redAccent)
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buttonRounded(title: '1'),
+                      _buttonRounded(title: '2'),
+                      _buttonRounded(title: '3'),
+                      _buttonRounded(
+                          title: '+',
+                          textColor: darkMode ? Colors.green : Colors.redAccent)
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buttonRounded(title: '0'),
+                      _buttonRounded(title: ','),
+                      _buttonRounded(
+                          icon: Icons.backspace_outlined,
+                          iconColor:
+                              darkMode ? Colors.green : Colors.redAccent),
+                      _buttonRounded(
+                          title: '=',
+                          textColor: darkMode ? Colors.green : Colors.redAccent)
+                    ],
+                  )
+                ]),
+              ),
+            ],
           ),
         ),
       ),
